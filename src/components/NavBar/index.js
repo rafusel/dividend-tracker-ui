@@ -16,11 +16,17 @@ export default function NavBar(props) {
             </a>
           </span>
           <div className={styles.navBarLinkWrapper}>
-            <span>
-              <a href="/login">
+            <a href="/login">
+              <span>
                 Log In
-              </a>
-            </span>
+              </span>
+            </a>
+            &nbsp;|&nbsp;
+            <a href="/about">
+              <span>
+                About
+              </span>
+            </a>
           </div>
         </div>
       </nav>
