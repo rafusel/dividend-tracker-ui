@@ -8,8 +8,10 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import Home from '../Home';
+import Home from '../Home/index';
 import './index.css';
+import LoginPage from '../LoginPage/index';
+import NavBar from '../NavBar/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +29,11 @@ class App extends React.Component {
   render() {
     return (
       <Router>
+        <NavBar />
         <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
