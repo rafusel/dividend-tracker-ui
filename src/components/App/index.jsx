@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setDividends } from '../../redux/actions';
-import { getTotalDividends } from '../../redux/selectors'; 
+import { getTotalDividends } from '../../redux/selectors';
 import { fetchDividends } from '../../redux/axiosHelpers';
 import {
   BrowserRouter as Router,
@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/dividend-tracker-ui">
         <NavBar />
         <Switch>
           <Route path="/login">
