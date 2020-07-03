@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
+import axios from 'axios'
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -11,12 +12,21 @@ export default class LoginPage extends React.Component {
   }
 
   login = (e) => {
-
+    e.preventDefault();
+    axios.post('http://localhost:5000/api/v1/login', this.state)
+    .then(res => {
+      console.log(res);
+      window.location.href = '/dividends';
+    }, (error) => {
+      console.error(error);
+    });
   }
 
-  setEmail = (e) => {this.setState({ email: e.target.value })}
-
-  setPassword = (e) => {this.setState({ password: e.target.value })}
+  handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value });
+  }
 
   render() {
     return (
@@ -29,14 +39,14 @@ export default class LoginPage extends React.Component {
                 type="email"
                 name="email"
                 placeholder="Email address"
-                onChange={this.setUsername}
+                onChange={this.handleChange}
               />
               <br />
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={this.setPassword}
+                onChange={this.handleChange}
               />
               <div className={styles.submitWrapper}>
                 <input type="submit" value="Submit" />
