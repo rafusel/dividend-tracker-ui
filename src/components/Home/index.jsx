@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Charts from '../../assets/download.jpg';
+import Logo from '../../assets/wealthsimple-pink.png';
 
 export default function Home(props) {
   return (
@@ -25,7 +25,7 @@ export default function Home(props) {
         </p>
       </div>
       <div className={styles.image}>
-        <img src={Charts} alt="Charts" />
+        <img src={Logo} alt="Charts" />
       </div>
     </div>
   );

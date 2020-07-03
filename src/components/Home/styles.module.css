@@ -21,7 +21,7 @@
 }
 
 .pink {
-  background-color: #aa637d;
+  background-color: var(--pink);
   color: white;
   padding: 20px;
   margin-bottom: 20px;

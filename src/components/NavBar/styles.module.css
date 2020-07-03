@@ -1,6 +1,9 @@
 .navBar {
   width: 100%;
   height: 55px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 .navBarWrapper {
@@ -8,7 +11,8 @@
   width: 100%;
   line-height: 55px;
   display: inline-flex;
-  font-family: Montserrat;
+  max-width: 1300px;
+  margin: auto;
 }
 
 .logo {
@@ -35,6 +39,10 @@
 }
 
 .navBarLinkWrapper > a > span:hover {
-  background-color: #aa637d;
+  background-color: var(--pink);
   color: white;
+}
+
+.navBarLinkWrapper > a > span:active {
+  background-color: var(--active-pink);
 }
