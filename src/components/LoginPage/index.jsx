@@ -6,17 +6,27 @@ export default class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      loginInfo: {
+        email: '',
+        password: '',
+      },
+      tokens: {
+        access: '',
+        refresh: '',
+      }
     };
   }
 
   login = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/v1/login', this.state)
+    axios.post('https://trade-service.wealthsimple.com/auth/login', this.state.loginInfo)
     .then(res => {
-      console.log(res);
-      window.location.href = '/dividends';
+      this.setState({
+        tokens: {
+          access: res.headers['x-access-token'],
+          refresh: res.headers['x-refresh-token'],
+        }
+      })
     }, (error) => {
       console.error(error);
     });
@@ -25,7 +35,11 @@ export default class LoginPage extends React.Component {
   handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({ [name]: value });
+    const loginInfo = this.state.loginInfo;
+    loginInfo[name] = value;
+    this.setState({
+      loginInfo: loginInfo
+    });
   }
 
   render() {
@@ -39,6 +53,7 @@ export default class LoginPage extends React.Component {
                 type="email"
                 name="email"
                 placeholder="Email address"
+                value={this.state.loginInfo.email}
                 onChange={this.handleChange}
               />
               <br />
@@ -46,10 +61,11 @@ export default class LoginPage extends React.Component {
                 type="password"
                 name="password"
                 placeholder="Password"
+                value={this.state.loginInfo.password}
                 onChange={this.handleChange}
               />
               <div className={styles.submitWrapper}>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Sign In" />
               </div>
           </div>
         </form>
