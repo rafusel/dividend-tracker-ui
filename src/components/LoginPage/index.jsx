@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom';
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -10,25 +11,22 @@ export default class LoginPage extends React.Component {
         email: '',
         password: '',
       },
-      tokens: {
-        access: '',
-        refresh: '',
-      }
     };
   }
 
   login = (e) => {
     e.preventDefault();
-    axios.post('https://trade-service.wealthsimple.com/auth/login', this.state.loginInfo)
+    axios.post('http://localhost:5000/api/v1/login', this.state.loginInfo)
     .then(res => {
-      this.setState({
-        tokens: {
-          access: res.headers['x-access-token'],
-          refresh: res.headers['x-refresh-token'],
-        }
-      })
+      const tokens = res.data;
+      this.props.setAuthentication(tokens);
     }, (error) => {
-      console.error(error);
+      alert('Login unsuccessful');
+      const loginInfo = this.state.loginInfo;
+      loginInfo.password = '';
+      this.setState({
+        loginInfo: loginInfo,
+      });
     });
   }
 
@@ -43,13 +41,14 @@ export default class LoginPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className={styles.fullPage}>
-        <h1>Log In</h1>
-        <p>Please use your Wealthsimple Trade credentials.</p>
-        <form className={styles.loginForm} onSubmit={this.login}>
-          <div className={styles.formContent}>
-            <input
+    if (!this.props.isAuthenticated) {
+      return (
+        <div className={styles.fullPage}>
+          <h1>Log In</h1>
+          <p>Please use your Wealthsimple Trade credentials.</p>
+          <form className={styles.loginForm} onSubmit={this.login}>
+            <div className={styles.formContent}>
+              <input
                 type="email"
                 name="email"
                 placeholder="Email address"
@@ -67,9 +66,11 @@ export default class LoginPage extends React.Component {
               <div className={styles.submitWrapper}>
                 <input type="submit" value="Sign In" />
               </div>
-          </div>
-        </form>
-      </div>
-    );
+            </div>
+          </form>
+        </div>
+      );
+    }
+    return <Redirect to='/dashboard' />;
   }
 }

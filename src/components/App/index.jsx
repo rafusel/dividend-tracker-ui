@@ -12,12 +12,18 @@ import Home from '../Home/index';
 import './index.css';
 import LoginPage from '../LoginPage/index';
 import NavBar from '../NavBar/index';
+import Dashboard from '../Dashboard/index';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoaded: false,
+      isAuthenticated: false,
+      tokens: {
+        access: '',
+        refresh: '',
+      }
     }
   }
 
@@ -26,13 +32,29 @@ class App extends React.Component {
     this.setState({ isLoaded: true });
   }
 
+  setAuthentication = (tokens) => {
+    this.setState({
+      isAuthenticated: true,
+      tokens: tokens,
+    });
+  }
+
   render() {
     return (
       <Router basename="/dividend-tracker-ui">
         <NavBar />
         <Switch>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage
+              isAuthenticated={this.state.isAuthenticated}
+              setAuthentication={this.setAuthentication}
+            />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard
+              isAuthenticated={this.state.isAuthenticated}
+              tokens={this.state.tokens}
+            />
           </Route>
           <Route path="/">
             <Home />
