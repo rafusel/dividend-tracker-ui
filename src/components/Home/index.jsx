@@ -28,6 +28,10 @@ export default function Home(props) {
             willing to accept that the analytics provided by the platform (particularly
             for dividend growth investors) are lacking.
           </p>
+          <p>
+            Now you can have the best of both worlds! Buy and sell with Wealthsimple Trade, and use this tracker
+            for complete and automatic analytics.
+          </p>
           <Link to="/login">
             Stop Using Spreadsheets Now
           </Link>
