@@ -52,7 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <Router basename="/dividend-tracker-ui">
-        <NavBar />
+        <NavBar isAuthenticated={this.state.isAuthenticated} />
         <Switch>
           <Route path="/login">
             <LoginPage
@@ -67,7 +67,7 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/">
-            <Home />
+            <Home isAuthenticated={this.state.isAuthenticated} />
           </Route>
         </Switch>
       </Router>
