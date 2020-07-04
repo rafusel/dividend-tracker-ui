@@ -9,25 +9,38 @@ export default function NavBar(props) {
         <div className={styles.navBarWrapper}>
           <span>
             <Link to="/">
-              <img 
-                className={styles.logo} 
-                src={Logo} 
-                alt="Wealthsimple Pink Logo" 
+              <img
+                className={styles.logo}
+                src={Logo}
+                alt="Wealthsimple Pink Logo"
               />
             </Link>
           </span>
           <div className={styles.navBarLinkWrapper}>
-            <Link to="/login">
-              <span>
-                Log In
-              </span>
-            </Link>
-            &nbsp;|&nbsp;
-            <Link to="/about">
-              <span>
-                About
-              </span>
-            </Link>
+            {
+              props.isAuthenticated
+                ? (
+                  <Link to="/dashboard" >
+                    <span>
+                      Dashboard
+                    </span>
+                  </Link>
+                ) : (
+                  <React.Fragment>
+                    <Link to="/">
+                      <span>
+                        Home
+                      </span>
+                    </Link>
+                    &nbsp;|&nbsp;
+                    <Link to="/login">
+                      <span>
+                        Log In
+                      </span>
+                    </Link>
+                  </React.Fragment>
+                )
+            }
           </div>
         </div>
       </nav>
