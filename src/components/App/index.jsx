@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setDividends } from '../../redux/actions';
 import { getTotalDividends } from '../../redux/selectors';
-import { fetchDividends } from '../../redux/axiosHelpers';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,7 +27,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetchDividends(this.props.setDividendsInStore);
     const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
     const accessToken = sessionStorage.getItem('accessToken');
     const refreshToken = sessionStorage.getItem('refreshToken');
