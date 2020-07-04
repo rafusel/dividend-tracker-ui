@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { axiosBaseURL } from '../../redux/axiosHelpers';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class Dashboard extends React.Component {
 
   componentDidMount() {
     if (this.props.isAuthenticated) {
-      axios.post('https://wealthsimple-trade-dividends.herokuapp.com/api/v1/dividends', this.props.tokens)
+      axios.post(`${axiosBaseURL}/api/v1/dividends`, this.props.tokens)
       .then((res) => {
         const activities = res.data.dividends;
         const justDividends = activities.filter((activity) => (

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
+import { axiosBaseURL } from '../../redux/axiosHelpers';
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class LoginPage extends React.Component {
 
   login = (e) => {
     e.preventDefault();
-    axios.post('https://wealthsimple-trade-dividends.herokuapp.com/api/v1/login', this.state.loginInfo)
+    axios.post(`${axiosBaseURL}/api/v1/login`, this.state.loginInfo)
     .then(res => {
       const tokens = res.data;
       this.props.setAuthentication(tokens);
