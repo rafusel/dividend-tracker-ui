@@ -20,6 +20,9 @@ export default class LoginPage extends React.Component {
     .then(res => {
       const tokens = res.data;
       this.props.setAuthentication(tokens);
+      sessionStorage.setItem('isAuthenticated', 'true');
+      sessionStorage.setItem('accessToken', tokens.access);
+      sessionStorage.setItem('refreshToken', tokens.refresh);
     }, (error) => {
       alert('Login unsuccessful');
       const loginInfo = this.state.loginInfo;
