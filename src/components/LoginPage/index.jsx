@@ -16,7 +16,7 @@ export default class LoginPage extends React.Component {
 
   login = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/v1/login', this.state.loginInfo)
+    axios.post('https://wealthsimple-trade-dividends.herokuapp.com/api/v1/login', this.state.loginInfo)
     .then(res => {
       const tokens = res.data;
       this.props.setAuthentication(tokens);
