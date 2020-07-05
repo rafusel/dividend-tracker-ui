@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/dividend-tracker-ui/static/css/main.915dab15.chunk.css",
-    "main.js": "/dividend-tracker-ui/static/js/main.def93461.chunk.js",
-    "main.js.map": "/dividend-tracker-ui/static/js/main.def93461.chunk.js.map",
+    "main.css": "/dividend-tracker-ui/static/css/main.db52589d.chunk.css",
+    "main.js": "/dividend-tracker-ui/static/js/main.18927e33.chunk.js",
+    "main.js.map": "/dividend-tracker-ui/static/js/main.18927e33.chunk.js.map",
     "runtime-main.js": "/dividend-tracker-ui/static/js/runtime-main.1f837387.js",
     "runtime-main.js.map": "/dividend-tracker-ui/static/js/runtime-main.1f837387.js.map",
-    "static/js/2.96c1a5e0.chunk.js": "/dividend-tracker-ui/static/js/2.96c1a5e0.chunk.js",
-    "static/js/2.96c1a5e0.chunk.js.map": "/dividend-tracker-ui/static/js/2.96c1a5e0.chunk.js.map",
+    "static/js/2.2fd73ba1.chunk.js": "/dividend-tracker-ui/static/js/2.2fd73ba1.chunk.js",
+    "static/js/2.2fd73ba1.chunk.js.map": "/dividend-tracker-ui/static/js/2.2fd73ba1.chunk.js.map",
     "index.html": "/dividend-tracker-ui/index.html",
-    "precache-manifest.bdaa23b10f81514f2aac70894fba7b64.js": "/dividend-tracker-ui/precache-manifest.bdaa23b10f81514f2aac70894fba7b64.js",
+    "precache-manifest.5eadcda4563fc84b9251efa54811ec35.js": "/dividend-tracker-ui/precache-manifest.5eadcda4563fc84b9251efa54811ec35.js",
     "service-worker.js": "/dividend-tracker-ui/service-worker.js",
-    "static/css/main.915dab15.chunk.css.map": "/dividend-tracker-ui/static/css/main.915dab15.chunk.css.map",
-    "static/js/2.96c1a5e0.chunk.js.LICENSE.txt": "/dividend-tracker-ui/static/js/2.96c1a5e0.chunk.js.LICENSE.txt",
+    "static/css/main.db52589d.chunk.css.map": "/dividend-tracker-ui/static/css/main.db52589d.chunk.css.map",
+    "static/js/2.2fd73ba1.chunk.js.LICENSE.txt": "/dividend-tracker-ui/static/js/2.2fd73ba1.chunk.js.LICENSE.txt",
     "static/media/index.css": "/dividend-tracker-ui/static/media/Montserrat-Medium.c8b6e083.ttf",
     "static/media/wealthsimple-pink.png": "/dividend-tracker-ui/static/media/wealthsimple-pink.0c226a4a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1f837387.js",
-    "static/js/2.96c1a5e0.chunk.js",
-    "static/css/main.915dab15.chunk.css",
-    "static/js/main.def93461.chunk.js"
+    "static/js/2.2fd73ba1.chunk.js",
+    "static/css/main.db52589d.chunk.css",
+    "static/js/main.18927e33.chunk.js"
   ]
 }
