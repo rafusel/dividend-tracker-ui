@@ -49,10 +49,25 @@ class App extends React.Component {
     });
   }
 
+  logout = () => {
+    sessionStorage.clear();
+    this.setState({
+      isLoaded: false,
+      isAuthenticated: false,
+      tokens: {
+        access: '',
+        refresh: '',
+      }
+    });
+  }
+
   render() {
     return (
       <Router basename="/dividend-tracker-ui/">
-        <NavBar isAuthenticated={this.state.isAuthenticated} />
+        <NavBar
+          isAuthenticated={this.state.isAuthenticated}
+          logout={this.logout}
+        />
         <Switch>
           <Route path="/login">
             <LoginPage

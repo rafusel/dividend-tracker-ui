@@ -20,11 +20,19 @@ export default function NavBar(props) {
             {
               props.isAuthenticated
                 ? (
-                  <Link to="/dashboard" >
-                    <span>
-                      Dashboard
-                    </span>
-                  </Link>
+                  <React.Fragment>
+                    <Link to="/dashboard" >
+                      <span>
+                        Dashboard
+                      </span>
+                    </Link>
+                    &nbsp;|&nbsp;
+                    <a onClick={props.logout} href="/login">
+                      <span>
+                        Logout
+                      </span>
+                    </a>
+                  </React.Fragment>
                 ) : (
                   <React.Fragment>
                     <Link to="/">
