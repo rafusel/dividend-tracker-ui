@@ -27,11 +27,11 @@ export default function NavBar(props) {
                       </span>
                     </Link>
                     &nbsp;|&nbsp;
-                    <a onClick={props.logout} href="/dividend-tracker-ui/login">
+                    <Link to="/logout" >
                       <span>
                         Logout
                       </span>
-                    </a>
+                    </Link>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>

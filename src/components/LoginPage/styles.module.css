@@ -44,3 +44,13 @@
   cursor: pointer;
   background-color: var(--active-pink);
 }
+
+@media only screen and (max-width: 500px) {
+  .loginForm > div > input {
+    width: 80%;
+  }
+
+  .formContent {
+    width: 100%;
+  }
+}

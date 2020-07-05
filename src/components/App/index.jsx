@@ -12,6 +12,7 @@ import './index.css';
 import LoginPage from '../LoginPage/index';
 import NavBar from '../NavBar/index';
 import Dashboard from '../Dashboard/index';
+import Logout from '../Logout/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -66,7 +67,6 @@ class App extends React.Component {
       <Router basename="/dividend-tracker-ui/">
         <NavBar
           isAuthenticated={this.state.isAuthenticated}
-          logout={this.logout}
         />
         <Switch>
           <Route path="/login">
@@ -79,6 +79,11 @@ class App extends React.Component {
             <Dashboard
               isAuthenticated={this.state.isAuthenticated}
               tokens={this.state.tokens}
+            />
+          </Route>
+          <Route path="/logout">
+            <Logout
+              logout={this.logout}
             />
           </Route>
           <Route exact path="/">
