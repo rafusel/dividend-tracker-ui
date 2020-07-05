@@ -23,7 +23,8 @@ class App extends React.Component {
       tokens: {
         access: '',
         refresh: '',
-      }
+      },
+      userData: {},
     }
   }
 
@@ -43,10 +44,11 @@ class App extends React.Component {
     this.setState({ isLoaded: true });
   }
 
-  setAuthentication = (tokens) => {
+  setAuthentication = (tokens, userData) => {
     this.setState({
       isAuthenticated: true,
-      tokens: tokens,
+      tokens,
+      userData,
     });
   }
 
@@ -58,7 +60,8 @@ class App extends React.Component {
       tokens: {
         access: '',
         refresh: '',
-      }
+      },
+      userData: {},
     });
   }
 

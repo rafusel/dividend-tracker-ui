@@ -19,8 +19,8 @@ export default class LoginPage extends React.Component {
     e.preventDefault();
     axios.post(`${axiosBaseURL}/api/v1/login`, this.state.loginInfo)
     .then(res => {
-      const tokens = res.data;
-      this.props.setAuthentication(tokens);
+      const { tokens, userData } = res.data;
+      this.props.setAuthentication(tokens, userData);
       sessionStorage.setItem('isAuthenticated', 'true');
       sessionStorage.setItem('accessToken', tokens.access);
       sessionStorage.setItem('refreshToken', tokens.refresh);

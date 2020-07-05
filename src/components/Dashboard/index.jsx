@@ -11,6 +11,7 @@ export default class Dashboard extends React.Component {
     this.state = {
       allActivities: [],
       dividendsWithinPastYear: 0,
+      totalEquityValue: 0,
     };
   }
 
@@ -53,16 +54,37 @@ export default class Dashboard extends React.Component {
     return sumDividends;
   }
 
+  sendHistoryRequest = (account) => {
+    axios.post(`${axiosBaseURL}/api/v1/history`, {
+      tokens: this.props.tokens,
+      accountID: account.id,
+    }).then((res) => {
+      const results = res.data.results;
+      console.log(results[results.length-1])
+      const currentEquityValue = results[results.length - 1].equity_value.amount;
+      const totalEquityValue = this.state.totalEquityValue;
+      this.setState({
+        totalEquityValue: currentEquityValue + totalEquityValue,
+      });
+    });
+  }
+
   componentDidMount() {
     if (this.props.isAuthenticated) {
-      axios.post(`${axiosBaseURL}/api/v1/dividends`, this.props.tokens)
+      axios.post(`${axiosBaseURL}/api/v1/activities`, this.props.tokens)
       .then((res) => {
-        const activities = res.data.dividends;
+        const activities = res.data.activities;
         this.setState({
           allActivities: activities,
           dividendsWithinPastYear: this.getDividendIncome(activities)
             .toFixed(2),
         })
+      });
+
+      axios.post(`${axiosBaseURL}/api/v1/accounts`, this.props.tokens)
+      .then((res) => {
+        const accounts = res.data.results;
+        accounts.forEach(this.sendHistoryRequest);
       });
     }
   }
@@ -78,6 +100,10 @@ export default class Dashboard extends React.Component {
             <DashboardCard
               label="Dividend Income in the Past Year"
               value={`$${this.state.dividendsWithinPastYear}`}
+            />
+            <DashboardCard
+              label="Portfolio Equity Value"
+              value={`$${this.state.totalEquityValue}`}
             />
           </div>
         </div>
