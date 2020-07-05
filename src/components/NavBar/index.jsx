@@ -27,7 +27,7 @@ export default function NavBar(props) {
                       </span>
                     </Link>
                     &nbsp;|&nbsp;
-                    <a onClick={props.logout} href="/login">
+                    <a onClick={props.logout} href="/dividend-tracker-ui/login">
                       <span>
                         Logout
                       </span>
