@@ -16,6 +16,7 @@ The front end of this app is a single page React application hosted [here](https
 The Wealthsimple Trade API does not allow client-side requests due to the CORS policy. Therefore this app requires a back end to make requests for the front end. The back end is a minimal NodeJS server hosted [here](https://wealthsimple-trade-dividends.herokuapp.com/). The front end React app hits API endpoints on this server which in turn makes a request to Wealthsimple, crunches some of the data into a more useful form for the app, and passes on the modified data back to the client. 
 
 ### The homepage
+![](home-page.gif)
 
 ### The login page
 
