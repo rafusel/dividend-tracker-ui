@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dividend-tracker-ui/static/css/main.3efbad99.chunk.css",
+    "main.css": "/dividend-tracker-ui/static/css/main.71326e40.chunk.css",
     "main.js": "/dividend-tracker-ui/static/js/main.d7b80bb8.chunk.js",
     "main.js.map": "/dividend-tracker-ui/static/js/main.d7b80bb8.chunk.js.map",
     "runtime-main.js": "/dividend-tracker-ui/static/js/runtime-main.1f837387.js",
@@ -8,9 +8,9 @@
     "static/js/2.2b856a79.chunk.js": "/dividend-tracker-ui/static/js/2.2b856a79.chunk.js",
     "static/js/2.2b856a79.chunk.js.map": "/dividend-tracker-ui/static/js/2.2b856a79.chunk.js.map",
     "index.html": "/dividend-tracker-ui/index.html",
-    "precache-manifest.a8169b87e8041db260780d94839469b7.js": "/dividend-tracker-ui/precache-manifest.a8169b87e8041db260780d94839469b7.js",
+    "precache-manifest.4addcbbbf8e61f3ab16f6f97267362f6.js": "/dividend-tracker-ui/precache-manifest.4addcbbbf8e61f3ab16f6f97267362f6.js",
     "service-worker.js": "/dividend-tracker-ui/service-worker.js",
-    "static/css/main.3efbad99.chunk.css.map": "/dividend-tracker-ui/static/css/main.3efbad99.chunk.css.map",
+    "static/css/main.71326e40.chunk.css.map": "/dividend-tracker-ui/static/css/main.71326e40.chunk.css.map",
     "static/js/2.2b856a79.chunk.js.LICENSE.txt": "/dividend-tracker-ui/static/js/2.2b856a79.chunk.js.LICENSE.txt",
     "static/media/index.css": "/dividend-tracker-ui/static/media/Montserrat-Medium.c8b6e083.ttf",
     "static/media/wealthsimple-pink.png": "/dividend-tracker-ui/static/media/wealthsimple-pink.0c226a4a.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.1f837387.js",
     "static/js/2.2b856a79.chunk.js",
-    "static/css/main.3efbad99.chunk.css",
+    "static/css/main.71326e40.chunk.css",
     "static/js/main.d7b80bb8.chunk.js"
   ]
 }
