@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "af97f702448e994428673af1d1e7c300",
+    "revision": "4512d471eb51acf03a785ccb59be8ec0",
     "url": "/dividend-tracker-ui/index.html"
   },
   {
-    "revision": "af075b9eda0e7fc04782",
+    "revision": "257c600f658402651d1f",
     "url": "/dividend-tracker-ui/static/css/main.3efbad99.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dividend-tracker-ui/static/js/2.2fd73ba1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "af075b9eda0e7fc04782",
-    "url": "/dividend-tracker-ui/static/js/main.a3795544.chunk.js"
+    "revision": "257c600f658402651d1f",
+    "url": "/dividend-tracker-ui/static/js/main.6d63f063.chunk.js"
   },
   {
     "revision": "f8a9f9a226fdfe0e3e27",
