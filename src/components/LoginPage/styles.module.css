@@ -42,8 +42,5 @@
 
 .submitWrapper > input:hover {
   cursor: pointer;
-}
-
-.submitWrapper > input:active {
   background-color: var(--active-pink);
 }

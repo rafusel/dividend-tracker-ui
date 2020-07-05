@@ -7,13 +7,9 @@
   flex-direction: column;
   margin: 20px;
   padding: 0 20px 0 20px;
-  background-color: rgba(207, 105, 142, 0.2);
-
-}
-
-.dashboardCard:hover {
-  background-color: rgba(207, 105, 142, 0.3);
-
+  /* background-color: rgba(207, 105, 142, 0.2); */
+  background-color: var(--pink);
+  color: white;
 }
 
 .dashboardCard > h1 {
