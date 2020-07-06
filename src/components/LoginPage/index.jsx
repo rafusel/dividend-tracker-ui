@@ -20,10 +20,11 @@ export default class LoginPage extends React.Component {
     axios.post(`${axiosBaseURL}/api/v1/login`, this.state.loginInfo)
     .then(res => {
       const { tokens, userData } = res.data;
-      this.props.setAuthentication(tokens, userData);
+      this.props.setAuthentication(tokens, userData.first_name);
       sessionStorage.setItem('isAuthenticated', 'true');
       sessionStorage.setItem('accessToken', tokens.access);
       sessionStorage.setItem('refreshToken', tokens.refresh);
+      sessionStorage.setItem('firstName', userData.first_name);
     }, (error) => {
       alert('Login unsuccessful');
       const loginInfo = this.state.loginInfo;

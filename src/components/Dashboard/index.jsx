@@ -12,7 +12,46 @@ export default class Dashboard extends React.Component {
       allActivities: [],
       dividendsWithinPastYear: 0,
       totalEquityValue: 0,
+      projectedDividend: 0,
     };
+  }
+
+  componentDidMount() {
+    if (this.props.isAuthenticated) {
+      axios.post(`${axiosBaseURL}/api/v1/activities`, this.props.tokens)
+      .then((res) => {
+        const activities = res.data.activities;
+        this.setState({
+          allActivities: activities,
+          dividendsWithinPastYear: this.getDividendIncome(activities),
+        })
+      });
+
+      axios.post(`${axiosBaseURL}/api/v1/accounts`, this.props.tokens)
+      .then((res) => {
+        const accounts = res.data.results;
+        accounts.forEach(this.sendHistoryRequest);
+      });
+
+      axios.post(`${axiosBaseURL}/api/v1/positions`, this.props.tokens)
+      .then(res => {
+        const positions = res.data.results;
+        positions.forEach(this.projectDividend)
+      });
+    }
+  }
+
+  projectDividend = (position) => {
+    const ticker = position.stock.symbol.replace('.', '-');
+    const numberOfShares = position.quantity;
+    axios.post(`${axiosBaseURL}/api/v1/yield`, { ticker })
+    .then(res => {
+      const currentDividendValue = res.data.dividend * numberOfShares;
+      const totalProjectedDividend = this.state.projectedDividend;
+      this.setState({
+        projectedDividend: currentDividendValue + totalProjectedDividend,
+      });
+    });
   }
 
   parseDate = (givenDateAsString) => {
@@ -60,7 +99,6 @@ export default class Dashboard extends React.Component {
       accountID: account.id,
     }).then((res) => {
       const results = res.data.results;
-      console.log(results[results.length-1])
       const currentEquityValue = results[results.length - 1].equity_value.amount;
       const totalEquityValue = this.state.totalEquityValue;
       this.setState({
@@ -69,41 +107,31 @@ export default class Dashboard extends React.Component {
     });
   }
 
-  componentDidMount() {
-    if (this.props.isAuthenticated) {
-      axios.post(`${axiosBaseURL}/api/v1/activities`, this.props.tokens)
-      .then((res) => {
-        const activities = res.data.activities;
-        this.setState({
-          allActivities: activities,
-          dividendsWithinPastYear: this.getDividendIncome(activities)
-            .toFixed(2),
-        })
-      });
-
-      axios.post(`${axiosBaseURL}/api/v1/accounts`, this.props.tokens)
-      .then((res) => {
-        const accounts = res.data.results;
-        accounts.forEach(this.sendHistoryRequest);
-      });
-    }
-  }
-
   render() {
+    const {
+      dividendsWithinPastYear,
+      projectedDividend,
+      totalEquityValue,
+    } = this.state
+    const estimatedYield = (projectedDividend / totalEquityValue) * 100;
     return (
       this.props.isAuthenticated ? (
         <div className={styles.dashboardWrapper}>
           <h1>
-            Welcome to your dashboard, Lewis
+            Welcome to your dashboard, {this.props.userName}
           </h1>
           <div className={styles.dashboardCards}>
             <DashboardCard
               label="Dividend Income in the Past Year"
-              value={`$${this.state.dividendsWithinPastYear}`}
+              value={`$${dividendsWithinPastYear.toFixed(2)}`}
             />
             <DashboardCard
-              label="Portfolio Equity Value"
-              value={`$${this.state.totalEquityValue}`}
+              label="Estimated Current Yearly Dividend Income"
+              value={`$${projectedDividend.toFixed(2)}`}
+            />
+            <DashboardCard
+              label="Estimated Current Dividend Yield"
+              value={`${estimatedYield.toFixed(2)}%`}
             />
           </div>
         </div>

@@ -24,7 +24,7 @@ class App extends React.Component {
         access: '',
         refresh: '',
       },
-      userData: {},
+      firstName: '',
     }
   }
 
@@ -32,23 +32,25 @@ class App extends React.Component {
     const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
     const accessToken = sessionStorage.getItem('accessToken');
     const refreshToken = sessionStorage.getItem('refreshToken');
-    if (isAuthenticated && accessToken && refreshToken) {
+    const firstName = sessionStorage.getItem('firstName');
+    if (isAuthenticated && accessToken && refreshToken && firstName) {
       this.setState({
-        isAuthenticated: isAuthenticated,
+        isAuthenticated,
         tokens: {
           access: accessToken,
           refresh: refreshToken,
-        }
+        },
+        firstName,
       });
     }
     this.setState({ isLoaded: true });
   }
 
-  setAuthentication = (tokens, userData) => {
+  setAuthentication = (tokens, firstName) => {
     this.setState({
       isAuthenticated: true,
       tokens,
-      userData,
+      firstName,
     });
   }
 
@@ -61,7 +63,7 @@ class App extends React.Component {
         access: '',
         refresh: '',
       },
-      userData: {},
+      firstName: '',
     });
   }
 
@@ -82,6 +84,7 @@ class App extends React.Component {
             <Dashboard
               isAuthenticated={this.state.isAuthenticated}
               tokens={this.state.tokens}
+              userName={this.state.firstName}
             />
           </Route>
           <Route path="/logout">
