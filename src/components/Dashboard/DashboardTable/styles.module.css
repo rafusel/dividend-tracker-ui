@@ -10,10 +10,22 @@
 
 .tableWrapper > table > tr > th {
   text-align: left;
-  padding-bottom: 30px;
+  height: 22px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.tableWrapper > table > tr > th:hover {
+  background-color: #efe1f0;
 }
 
 .tableWrapper > table > tr > td {
   padding: 10px 0 10px 0;
   border-top: #efe1f0 solid 1px;
+}
+
+.sortingIcon {
+  height: 20px;
+  margin-left: 10px;
+  padding-top: 5px;
 }

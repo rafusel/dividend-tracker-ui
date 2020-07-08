@@ -25,7 +25,11 @@ export default class Dashboard extends React.Component {
       viewPort: {
         height: 200,
         width: 200,
-      }
+      },
+      sort: {
+        by: '',
+        ascending: true,
+      },
     };
   }
 
@@ -161,6 +165,44 @@ export default class Dashboard extends React.Component {
     return data;
   }
 
+  sortDividends = (key) => {
+    const compareFunction = (a, b) => {
+      if (a[key] === b[key]) return 0;
+      if (a[key] > b[key]) return 1;
+      return -1;
+    }
+
+    const compareFunctionReverse = (a, b) => {
+      if (a[key] === b[key]) return 0;
+      if (a[key] < b[key]) return 1;
+      return -1;
+    }
+
+    if (this.state.sort.by === key) {
+      const cmpFunc = this.state.sort.ascending ? compareFunction : compareFunctionReverse;
+      const dividends = this.state.dividends;
+      const ascending = this.state.sort.ascending;
+      dividends.sort(cmpFunc);
+      this.setState({
+        dividends,
+        sort: {
+          by: key,
+          ascending: !ascending,
+        }
+      });
+    } else {
+      const dividends = this.state.dividends;
+      dividends.sort(compareFunction);
+      this.setState({
+        dividends,
+        sort: {
+          by: key,
+          ascending: true,
+        }
+      });
+    }
+  }
+
   render() {
     const {
       dividendsWithinPastYear,
@@ -221,6 +263,7 @@ export default class Dashboard extends React.Component {
             <div>
               <DashboardTable
                 data={this.state.dividends}
+                sortDividends={this.sortDividends}
               />
             </div>
           </div>
