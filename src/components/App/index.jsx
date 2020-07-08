@@ -13,6 +13,7 @@ import LoginPage from '../LoginPage/index';
 import NavBar from '../NavBar/index';
 import Dashboard from '../Dashboard/index';
 import Logout from '../Logout/index';
+import '../../../node_modules/react-vis/dist/style.css';
 
 class App extends React.Component {
   constructor(props) {

@@ -15,3 +15,10 @@
   max-width: 1300px;
   margin: 20px auto 20px auto;
 }
+
+.dividendGraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

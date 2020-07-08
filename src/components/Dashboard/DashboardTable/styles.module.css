@@ -1,0 +1,19 @@
+.tableWrapper {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.tableWrapper > table {
+  width: 100%;
+  padding-left: 60px;
+}
+
+.tableWrapper > table > tr > th {
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.tableWrapper > table > tr > td {
+  padding: 10px 0 10px 0;
+  border-top: #efe1f0 solid 1px;
+}
