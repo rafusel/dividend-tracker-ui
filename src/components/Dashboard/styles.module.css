@@ -21,4 +21,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
+}
+
+label {
+  margin-top: 50px;
+  padding-left: 60px;
+}
+
+select {
+  margin-left: 5px;
 }

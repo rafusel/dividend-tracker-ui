@@ -26,10 +26,8 @@ export default class Dashboard extends React.Component {
         height: 200,
         width: 200,
       },
-      sort: {
-        by: '',
-        ascending: true,
-      },
+      sortBy: 'date',
+      crunchDividends: [],
     };
   }
 
@@ -125,8 +123,10 @@ export default class Dashboard extends React.Component {
     const sumDividends = dividendsWithinPastYear.reduce((total, dividend) => (
       total + dividend.market_value.amount
     ), 0);
+
     this.setState({
       dividends: dividendsWithinPastYear,
+      crunchDividends: this.crunchDividends(dividendsWithinPastYear),
     });
     return sumDividends;
   }
@@ -165,42 +165,8 @@ export default class Dashboard extends React.Component {
     return data;
   }
 
-  sortDividends = (key) => {
-    const compareFunction = (a, b) => {
-      if (a[key] === b[key]) return 0;
-      if (a[key] > b[key]) return 1;
-      return -1;
-    }
-
-    const compareFunctionReverse = (a, b) => {
-      if (a[key] === b[key]) return 0;
-      if (a[key] < b[key]) return 1;
-      return -1;
-    }
-
-    if (this.state.sort.by === key) {
-      const cmpFunc = this.state.sort.ascending ? compareFunction : compareFunctionReverse;
-      const dividends = this.state.dividends;
-      const ascending = this.state.sort.ascending;
-      dividends.sort(cmpFunc);
-      this.setState({
-        dividends,
-        sort: {
-          by: key,
-          ascending: !ascending,
-        }
-      });
-    } else {
-      const dividends = this.state.dividends;
-      dividends.sort(compareFunction);
-      this.setState({
-        dividends,
-        sort: {
-          by: key,
-          ascending: true,
-        }
-      });
-    }
+  changeSortBy = (e) => {
+    this.setState({ sortBy: e.target.value });
   }
 
   render() {
@@ -208,10 +174,10 @@ export default class Dashboard extends React.Component {
       dividendsWithinPastYear,
       projectedDividend,
       totalEquityValue,
+      crunchDividends,
     } = this.state
     const estimatedYield = (projectedDividend / totalEquityValue) * 100;
-    const dividends = this.state.dividends;
-    const data = this.crunchDividends(dividends);
+
 
     return (
       this.props.isAuthenticated ? (
@@ -254,16 +220,43 @@ export default class Dashboard extends React.Component {
                   title="Dividend Amount"
                 />
                 <VerticalBarSeries
-                  data={data}
+                  data={crunchDividends}
                   color='#cf698e'
                   animation={{duration: 1000}}
                 />
               </XYPlot>
             </div>
             <div>
+              <div className={styles.sortingAndFiltering}>
+                <label>Sort by:</label>
+                <select
+                  value={this.state.sortBy}
+                  onChange={this.changeSortBy}
+                  name="sorting"
+                >
+                  <option value="date">
+                    Date
+                  </option>
+                  <option value="date-reverse">
+                    Date - Reverse
+                  </option>
+                  <option value="security-reverse">
+                    Security
+                  </option>
+                  <option value="security">
+                    Security - Reverse
+                  </option>
+                  <option value="dividend">
+                    Dividend
+                  </option>
+                  <option value="dividend-reverse">
+                    Dividend - Reverse
+                  </option>
+                </select>
+              </div>
               <DashboardTable
-                data={this.state.dividends}
-                sortDividends={this.sortDividends}
+                dividends={this.state.dividends}
+                sortBy={this.state.sortBy}
               />
             </div>
           </div>
