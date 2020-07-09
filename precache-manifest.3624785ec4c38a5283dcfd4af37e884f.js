@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4eae525701234b6a6d5a9ddff7158fa2",
+    "revision": "55d7bf1241042a57cda2cf82df605213",
     "url": "/dividend-tracker-ui/index.html"
   },
   {

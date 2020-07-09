@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dividend-tracker-ui/precache-manifest.2994a00c59aaaba28f5a576f858fc9c7.js"
+  "/dividend-tracker-ui/precache-manifest.3624785ec4c38a5283dcfd4af37e884f.js"
 );
 
 self.addEventListener('message', (event) => {
