@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1c50e64c6c0d4bbaaed6cc6cdbb8aa9",
+    "revision": "019fbb8048cc6a8138c2dafb15a0e507",
     "url": "/dividend-tracker-ui/index.html"
   },
   {
-    "revision": "3b677bc95cbaf7b4b021",
+    "revision": "907282f3268d057c5968",
     "url": "/dividend-tracker-ui/static/css/2.5a2f7233.chunk.css"
   },
   {
-    "revision": "d5c56c91278426ebe2ea",
-    "url": "/dividend-tracker-ui/static/css/main.2595027e.chunk.css"
+    "revision": "20fec2113378efe77480",
+    "url": "/dividend-tracker-ui/static/css/main.3dbe4425.chunk.css"
   },
   {
-    "revision": "3b677bc95cbaf7b4b021",
-    "url": "/dividend-tracker-ui/static/js/2.497d6a2b.chunk.js"
+    "revision": "907282f3268d057c5968",
+    "url": "/dividend-tracker-ui/static/js/2.9a4c518f.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/dividend-tracker-ui/static/js/2.497d6a2b.chunk.js.LICENSE.txt"
+    "url": "/dividend-tracker-ui/static/js/2.9a4c518f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d5c56c91278426ebe2ea",
-    "url": "/dividend-tracker-ui/static/js/main.193efcfb.chunk.js"
+    "revision": "20fec2113378efe77480",
+    "url": "/dividend-tracker-ui/static/js/main.117bfa8f.chunk.js"
   },
   {
     "revision": "f8a9f9a226fdfe0e3e27",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c8b6e083af3f94009801989c3739425e",
     "url": "/dividend-tracker-ui/static/media/Montserrat-Medium.c8b6e083.ttf"
+  },
+  {
+    "revision": "a21746f5374859d98f7528e1857e3532",
+    "url": "/dividend-tracker-ui/static/media/spinner.a21746f5.gif"
   },
   {
     "revision": "0c226a4abfe398c4f64bae682c46f2ee",
