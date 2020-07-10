@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/dividend-tracker-ui/static/css/main.3dbe4425.chunk.css",
-    "main.js": "/dividend-tracker-ui/static/js/main.117bfa8f.chunk.js",
-    "main.js.map": "/dividend-tracker-ui/static/js/main.117bfa8f.chunk.js.map",
+    "main.css": "/dividend-tracker-ui/static/css/main.1e886b41.chunk.css",
+    "main.js": "/dividend-tracker-ui/static/js/main.9d1c14cc.chunk.js",
+    "main.js.map": "/dividend-tracker-ui/static/js/main.9d1c14cc.chunk.js.map",
     "runtime-main.js": "/dividend-tracker-ui/static/js/runtime-main.1f837387.js",
     "runtime-main.js.map": "/dividend-tracker-ui/static/js/runtime-main.1f837387.js.map",
     "static/css/2.5a2f7233.chunk.css": "/dividend-tracker-ui/static/css/2.5a2f7233.chunk.css",
-    "static/js/2.9a4c518f.chunk.js": "/dividend-tracker-ui/static/js/2.9a4c518f.chunk.js",
-    "static/js/2.9a4c518f.chunk.js.map": "/dividend-tracker-ui/static/js/2.9a4c518f.chunk.js.map",
+    "static/js/2.2c643343.chunk.js": "/dividend-tracker-ui/static/js/2.2c643343.chunk.js",
+    "static/js/2.2c643343.chunk.js.map": "/dividend-tracker-ui/static/js/2.2c643343.chunk.js.map",
     "index.html": "/dividend-tracker-ui/index.html",
-    "precache-manifest.c8b8bd75f014a27c75853c57f8ca62aa.js": "/dividend-tracker-ui/precache-manifest.c8b8bd75f014a27c75853c57f8ca62aa.js",
+    "precache-manifest.d46925c82c89aff4ec0ce7b02758c79a.js": "/dividend-tracker-ui/precache-manifest.d46925c82c89aff4ec0ce7b02758c79a.js",
     "service-worker.js": "/dividend-tracker-ui/service-worker.js",
     "static/css/2.5a2f7233.chunk.css.map": "/dividend-tracker-ui/static/css/2.5a2f7233.chunk.css.map",
-    "static/css/main.3dbe4425.chunk.css.map": "/dividend-tracker-ui/static/css/main.3dbe4425.chunk.css.map",
-    "static/js/2.9a4c518f.chunk.js.LICENSE.txt": "/dividend-tracker-ui/static/js/2.9a4c518f.chunk.js.LICENSE.txt",
+    "static/css/main.1e886b41.chunk.css.map": "/dividend-tracker-ui/static/css/main.1e886b41.chunk.css.map",
+    "static/js/2.2c643343.chunk.js.LICENSE.txt": "/dividend-tracker-ui/static/js/2.2c643343.chunk.js.LICENSE.txt",
     "static/media/index.css": "/dividend-tracker-ui/static/media/Montserrat-Medium.c8b6e083.ttf",
     "static/media/spinner.gif": "/dividend-tracker-ui/static/media/spinner.a21746f5.gif",
     "static/media/wealthsimple-pink.png": "/dividend-tracker-ui/static/media/wealthsimple-pink.0c226a4a.png"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.1f837387.js",
     "static/css/2.5a2f7233.chunk.css",
-    "static/js/2.9a4c518f.chunk.js",
-    "static/css/main.3dbe4425.chunk.css",
-    "static/js/main.117bfa8f.chunk.js"
+    "static/js/2.2c643343.chunk.js",
+    "static/css/main.1e886b41.chunk.css",
+    "static/js/main.9d1c14cc.chunk.js"
   ]
 }
