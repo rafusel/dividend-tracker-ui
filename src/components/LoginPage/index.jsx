@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import { axiosBaseURL } from '../../redux/axiosHelpers';
+import Spinner from '../../assets/spinner.gif';
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -12,11 +13,13 @@ export default class LoginPage extends React.Component {
         email: '',
         password: '',
       },
+      disabled: false,
     };
   }
 
   login = (e) => {
     e.preventDefault();
+    this.setState({ disabled: true });
     axios.post(`${axiosBaseURL}/api/v1/login`, this.state.loginInfo)
     .then(res => {
       const { tokens, userData } = res.data;
@@ -26,6 +29,7 @@ export default class LoginPage extends React.Component {
       sessionStorage.setItem('refreshToken', tokens.refresh);
       sessionStorage.setItem('firstName', userData.first_name);
     }, (error) => {
+      this.setState({ disabled: false });
       alert('Login unsuccessful');
       const loginInfo = this.state.loginInfo;
       loginInfo.password = '';
@@ -45,6 +49,8 @@ export default class LoginPage extends React.Component {
     });
   }
 
+  disableInput = () => this.state.disabled ? styles.disabled : '';
+
   render() {
     if (!this.props.isAuthenticated) {
       return (
@@ -59,6 +65,8 @@ export default class LoginPage extends React.Component {
                 placeholder="Email address"
                 value={this.state.loginInfo.email}
                 onChange={this.handleChange}
+                disabled={this.state.disabled}
+                className={this.disableInput()}
               />
               <br />
               <input
@@ -67,9 +75,22 @@ export default class LoginPage extends React.Component {
                 placeholder="Password"
                 value={this.state.loginInfo.password}
                 onChange={this.handleChange}
+                disabled={this.state.disabled}
+                className={this.disableInput()}
               />
               <div className={styles.submitWrapper}>
-                <input type="submit" value="Sign In" />
+                {
+                  this.state.disabled
+                  ? (
+                    <img src={Spinner} alt="A loading spinner." />
+                  ) : (
+                    <input
+                      type="submit"
+                      value="Sign In"
+                      disabled={this.state.disabled}
+                    />
+                  )
+                }
               </div>
             </div>
           </form>

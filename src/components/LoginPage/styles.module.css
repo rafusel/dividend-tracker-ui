@@ -38,10 +38,10 @@
   width: 150px;
   height: 50px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .submitWrapper > input:hover {
-  cursor: pointer;
   background-color: var(--active-pink);
 }
 
@@ -53,4 +53,12 @@
   .formContent {
     width: 100%;
   }
+}
+
+.disabled {
+  cursor: not-allowed !important;
+}
+
+.submitWrapper > img {
+  height: 30px;
 }
