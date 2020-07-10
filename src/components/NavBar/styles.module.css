@@ -39,11 +39,12 @@
   color: inherit;
 }
 
-.navBarLinkWrapper > a > span:hover {
-  background-color: var(--pink);
-  color: white;
-}
-
 .navBarLinkWrapper > a > span:active {
   background-color: var(--active-pink);
+  color: white !important;
+}
+
+.active > span {
+  color: white !important;
+  background-color: var(--pink);
 }

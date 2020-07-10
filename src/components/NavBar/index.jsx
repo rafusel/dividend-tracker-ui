@@ -1,51 +1,63 @@
 import React from 'react';
 import Logo from '../../assets/wealthsimple-pink.png';
 import styles from './styles.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function NavBar(props) {
   return (
       <nav className={styles.navBar}>
         <div className={styles.navBarWrapper}>
           <span>
-            <Link to="/">
+            <NavLink to="/">
               <img
                 className={styles.logo}
                 src={Logo}
                 alt="Wealthsimple Pink Logo"
               />
-            </Link>
+            </NavLink>
           </span>
           <div className={styles.navBarLinkWrapper}>
             {
               props.isAuthenticated
                 ? (
                   <React.Fragment>
-                    <Link to="/dashboard" >
+                    <NavLink
+                      to="/dashboard"
+                      activeClassName={styles.active}
+                    >
                       <span>
                         Dashboard
                       </span>
-                    </Link>
+                    </NavLink>
                     &nbsp;|&nbsp;
-                    <Link to="/logout" >
+                    <NavLink
+                      to="/logout"
+                      activeClassName={styles.active}
+                    >
                       <span>
                         Logout
                       </span>
-                    </Link>
+                    </NavLink>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
-                    <Link to="/">
+                    <NavLink
+                      exact to="/"
+                      activeClassName={styles.active}
+                    >
                       <span>
                         Home
                       </span>
-                    </Link>
+                    </NavLink>
                     &nbsp;|&nbsp;
-                    <Link to="/login">
+                    <NavLink
+                      to="/login"
+                      activeClassName={styles.active}
+                    >
                       <span>
                         Log In
                       </span>
-                    </Link>
+                    </NavLink>
                   </React.Fragment>
                 )
             }

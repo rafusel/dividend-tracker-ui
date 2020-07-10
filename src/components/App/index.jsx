@@ -70,7 +70,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router basename="/dividend-tracker-ui/">
+      <Router basename="/dividend-tracker-ui">
         <NavBar
           isAuthenticated={this.state.isAuthenticated}
         />
