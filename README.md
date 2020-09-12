@@ -24,6 +24,6 @@ The Wealthsimple Trade API does not allow client-side requests due to the CORS p
 ![](login-page.png)
 
 ### The dashboard page
-![](dashboard.png)
+![](dashboard.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
