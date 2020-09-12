@@ -19,4 +19,4 @@ The Wealthsimple Trade API does not allow client-side requests due to the CORS p
 ![](home-page.gif)
 
 ### The login page
-
+![](login-page.png)
