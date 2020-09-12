@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28110a1f6255c019cc87cf5dbbcc3400",
+    "revision": "ea4832cd82b1c3a09211295de84e14e0",
     "url": "/dividend-tracker-ui/index.html"
   },
   {
-    "revision": "9ac4db7c4698a3070b0c",
+    "revision": "63c706a310619231e86c",
     "url": "/dividend-tracker-ui/static/css/2.5a2f7233.chunk.css"
   },
   {
-    "revision": "68549e6b1849b581d459",
+    "revision": "5bcc5c1d0be78b123b76",
     "url": "/dividend-tracker-ui/static/css/main.9f57fa16.chunk.css"
   },
   {
-    "revision": "9ac4db7c4698a3070b0c",
-    "url": "/dividend-tracker-ui/static/js/2.2c643343.chunk.js"
+    "revision": "63c706a310619231e86c",
+    "url": "/dividend-tracker-ui/static/js/2.02bc8056.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/dividend-tracker-ui/static/js/2.2c643343.chunk.js.LICENSE.txt"
+    "url": "/dividend-tracker-ui/static/js/2.02bc8056.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "68549e6b1849b581d459",
-    "url": "/dividend-tracker-ui/static/js/main.88e3004c.chunk.js"
+    "revision": "5bcc5c1d0be78b123b76",
+    "url": "/dividend-tracker-ui/static/js/main.158d9bd4.chunk.js"
   },
   {
     "revision": "f8a9f9a226fdfe0e3e27",
