@@ -12,6 +12,7 @@ export default class LoginPage extends React.Component {
       loginInfo: {
         email: '',
         password: '',
+        demoMode: false,
       },
       disabled: false,
     };
@@ -43,13 +44,14 @@ export default class LoginPage extends React.Component {
     const name = e.target.name;
     const value = e.target.value;
     const loginInfo = this.state.loginInfo;
-    loginInfo[name] = value;
+    if (name === 'demoMode') loginInfo[name] = e.target.checked;
+    else loginInfo[name] = value;
     this.setState({
       loginInfo: loginInfo
     });
   }
 
-  disableInput = () => this.state.disabled ? styles.disabled : '';
+  disableInput = () => this.state.disabled || this.state.loginInfo.demoMode ? styles.disabled : '';
 
   render() {
     if (!this.props.isAuthenticated) {
@@ -65,7 +67,7 @@ export default class LoginPage extends React.Component {
                 placeholder="Email address"
                 value={this.state.loginInfo.email}
                 onChange={this.handleChange}
-                disabled={this.state.disabled}
+                disabled={this.state.disabled || this.state.loginInfo.demoMode}
                 className={this.disableInput()}
               />
               <br />
@@ -75,8 +77,15 @@ export default class LoginPage extends React.Component {
                 placeholder="Password"
                 value={this.state.loginInfo.password}
                 onChange={this.handleChange}
-                disabled={this.state.disabled}
+                disabled={this.state.disabled || this.state.loginInfo.demoMode}
                 className={this.disableInput()}
+              />
+              <p>Don't have a WS Trade account?</p>
+              <p>Check this box and click <b>Sign In</b> to view the site in demo mode</p>
+              <input
+                type="checkbox"
+                name="demoMode"
+                onChange={this.handleChange}
               />
               <div className={styles.submitWrapper}>
                 {

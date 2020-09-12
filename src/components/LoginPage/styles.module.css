@@ -30,6 +30,10 @@
   background-image: linear-gradient(white, rgba(170, 99, 125, 0.15));
 }
 
+.loginForm > div > input[type="checkbox"] {
+  height: 15px;
+}
+
 .submitWrapper > input {
   background-color: var(--pink);
   color: white;
