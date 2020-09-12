@@ -1,5 +1,5 @@
 ### For Shopify People
-If you want to login to the website without a Wealthsimple Trade account go to the website (rafusel.github.io/dividend-tracker-ui). In the nav bar click **Log In**, and then select the checkbox for demo mode (indicated in the screenshot below) and click **Sign In**.
+If you want to login to the website without a Wealthsimple Trade account go to the website ([rafusel.github.io/dividend-tracker-ui](https://rafusel.github.io/dividend-tracker-ui/)). In the nav bar click **Log In**, and then select the checkbox for demo mode (indicated in the screenshot below) and click **Sign In**.
 ![](demo-mode.png)
 
 ### Description
