@@ -24,6 +24,7 @@ class App extends React.Component {
       tokens: {
         access: '',
         refresh: '',
+        demoMode: false,
       },
       firstName: '',
     }
@@ -34,6 +35,7 @@ class App extends React.Component {
     const accessToken = sessionStorage.getItem('accessToken');
     const refreshToken = sessionStorage.getItem('refreshToken');
     const firstName = sessionStorage.getItem('firstName');
+    const demoMode = sessionStorage.getItem('demoMode');
     if (isAuthenticated && accessToken && refreshToken && firstName) {
       this.setState({
         isAuthenticated,
@@ -42,6 +44,7 @@ class App extends React.Component {
           refresh: refreshToken,
         },
         firstName,
+        demoMode: demoMode === 'true',
       });
     }
     this.setState({ isLoaded: true });
@@ -63,9 +66,16 @@ class App extends React.Component {
       tokens: {
         access: '',
         refresh: '',
+        demoMode: false,
       },
       firstName: '',
     });
+  }
+
+  setDemoModeValue = (value) => {
+    let tokens = this.state.tokens;
+    tokens.demoMode = value;
+    this.setState({ tokens });
   }
 
   render() {
@@ -79,6 +89,8 @@ class App extends React.Component {
             <LoginPage
               isAuthenticated={this.state.isAuthenticated}
               setAuthentication={this.setAuthentication}
+              setDemoModeValue={this.setDemoModeValue}
+              demoMode={this.state.tokens.demoMode}
             />
           </Route>
           <Route path="/dashboard">

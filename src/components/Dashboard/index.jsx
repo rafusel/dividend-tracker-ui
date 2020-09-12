@@ -77,7 +77,7 @@ export default class Dashboard extends React.Component {
   projectDividend = (position) => {
     const ticker = position.stock.symbol.replace('.', '-');
     const numberOfShares = position.quantity;
-    axios.post(`${axiosBaseURL}/api/v1/yield`, { ticker })
+    axios.post(`${axiosBaseURL}/api/v1/yield`, { ticker, demoMode: this.props.tokens.demoMode })
     .then(res => {
       const currentDividendValue = res.data.dividend * numberOfShares;
       const totalProjectedDividend = this.state.projectedDividend;

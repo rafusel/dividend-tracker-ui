@@ -12,7 +12,6 @@ export default class LoginPage extends React.Component {
       loginInfo: {
         email: '',
         password: '',
-        demoMode: false,
       },
       disabled: false,
     };
@@ -21,14 +20,18 @@ export default class LoginPage extends React.Component {
   login = (e) => {
     e.preventDefault();
     this.setState({ disabled: true });
-    axios.post(`${axiosBaseURL}/api/v1/login`, this.state.loginInfo)
+    axios.post(`${axiosBaseURL}/api/v1/login`, {
+      ...this.state.loginInfo,
+      demoMode: this.props.demoMode,
+    })
     .then(res => {
       const { tokens, userData } = res.data;
-      this.props.setAuthentication(tokens, userData.first_name);
+      this.props.setAuthentication({ ...tokens, demoMode: this.props.demoMode }, userData.first_name);
       sessionStorage.setItem('isAuthenticated', 'true');
       sessionStorage.setItem('accessToken', tokens.access);
       sessionStorage.setItem('refreshToken', tokens.refresh);
       sessionStorage.setItem('firstName', userData.first_name);
+      sessionStorage.setItem('demoMode', this.props.demoMode.toString());
     }, (error) => {
       this.setState({ disabled: false });
       alert('Login unsuccessful');
@@ -44,14 +47,14 @@ export default class LoginPage extends React.Component {
     const name = e.target.name;
     const value = e.target.value;
     const loginInfo = this.state.loginInfo;
-    if (name === 'demoMode') loginInfo[name] = e.target.checked;
+    if (name === 'demoMode') this.props.setDemoModeValue(e.target.checked);
     else loginInfo[name] = value;
     this.setState({
       loginInfo: loginInfo
     });
   }
 
-  disableInput = () => this.state.disabled || this.state.loginInfo.demoMode ? styles.disabled : '';
+  disableInput = () => this.state.disabled || this.props.demoMode ? styles.disabled : '';
 
   render() {
     if (!this.props.isAuthenticated) {
@@ -67,7 +70,7 @@ export default class LoginPage extends React.Component {
                 placeholder="Email address"
                 value={this.state.loginInfo.email}
                 onChange={this.handleChange}
-                disabled={this.state.disabled || this.state.loginInfo.demoMode}
+                disabled={this.state.disabled || this.props.demoMode}
                 className={this.disableInput()}
               />
               <br />
@@ -77,7 +80,7 @@ export default class LoginPage extends React.Component {
                 placeholder="Password"
                 value={this.state.loginInfo.password}
                 onChange={this.handleChange}
-                disabled={this.state.disabled || this.state.loginInfo.demoMode}
+                disabled={this.state.disabled || this.props.demoMode}
                 className={this.disableInput()}
               />
               <p>Don't have a WS Trade account?</p>
