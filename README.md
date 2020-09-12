@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### For Shopify People
+If you want to login to the website without a Wealthsimple Trade account go to the website (rafusel.github.io/dividend-tracker-ui). In the nav bar click **Log In**, and then select the checkbox for demo mode (indicated in the screenshot below) and click **Sign In**.
+![](demo-mode.png)
 
 ### Description
 
@@ -20,3 +22,5 @@ The Wealthsimple Trade API does not allow client-side requests due to the CORS p
 
 ### The login page
 ![](login-page.png)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
