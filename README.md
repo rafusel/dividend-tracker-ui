@@ -2,6 +2,8 @@
 If you want to login to the website without a Wealthsimple Trade account go to the website ([rafusel.github.io/dividend-tracker-ui](https://rafusel.github.io/dividend-tracker-ui/)). In the nav bar click **Log In**, and then select the checkbox for demo mode (indicated in the screenshot below) and click **Sign In**.
 ![](demo-mode.png)
 
+**Important** The backend app is hosted on a free Heroku plan so server needs some extra time to start up if there hasn't been any calls to it in the past 30 minutes. Allow 30 seconds - 1 min after clicking Sign In for the dashboad page to load. 
+
 ### Description
 
 This project was created to easily track my dividend income from my holdings on Wealthsimple Trade. I discovered some [unofficial API docs](https://github.com/MarkGalloway/wealthsimple-trade/blob/master/API.md) and decided to create a simple service that could allow a Wealthsimple Trade user to log in with their credentials and have dividend analytics available to them. 
