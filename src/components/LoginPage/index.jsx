@@ -12,8 +12,10 @@ export default class LoginPage extends React.Component {
       loginInfo: {
         email: '',
         password: '',
+        otp: '',
       },
       disabled: false,
+      showOtpField: false,
     };
   }
 
@@ -33,12 +35,11 @@ export default class LoginPage extends React.Component {
       sessionStorage.setItem('firstName', userData.first_name);
       sessionStorage.setItem('demoMode', this.props.demoMode.toString());
     }, (error) => {
-      this.setState({ disabled: false });
-      alert('Login unsuccessful');
       const loginInfo = this.state.loginInfo;
-      loginInfo.password = '';
       this.setState({
         loginInfo: loginInfo,
+        disabled: false,
+        showOtpField: true,
       });
     });
   }
@@ -83,6 +84,25 @@ export default class LoginPage extends React.Component {
                 disabled={this.state.disabled || this.props.demoMode}
                 className={this.disableInput()}
               />
+              {
+                this.state.showOtpField && (
+                  <React.Fragment>
+                    <br />
+                    <p>
+                      Check your email for your one time password.
+                    </p>
+                    <br />
+                    <input
+                      type="password"
+                      name="otp"
+                      value={this.state.loginInfo.otp}
+                      onChange={this.handleChange}
+                      disabled={this.state.disabled || this.props.demoMode}
+                      className={this.disableInput()}
+                    />
+                  </React.Fragment>
+                )
+              }
               <p>Don't have a WS Trade account?</p>
               <p>Check this box and click <b>Sign In</b> to view the site in demo mode</p>
               <input
