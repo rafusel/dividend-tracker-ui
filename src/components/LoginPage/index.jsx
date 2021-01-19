@@ -91,10 +91,10 @@ export default class LoginPage extends React.Component {
                     <p>
                       Check your email for your one time password.
                     </p>
-                    <br />
                     <input
                       type="password"
                       name="otp"
+                      placeholder="One time password"
                       value={this.state.loginInfo.otp}
                       onChange={this.handleChange}
                       disabled={this.state.disabled || this.props.demoMode}
